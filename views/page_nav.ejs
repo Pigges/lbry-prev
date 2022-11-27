@@ -1,0 +1,12 @@
+<div class="nav">
+    <div id="prev-page">
+        <% if (videos.page > 1) { %>
+            <a href="?p=<%= videos.page-1 %>">back</a>
+        <% } %>
+    </div>
+    <% if (videos.total_pages > videos.page) { %>
+        <div id="next-page">
+            <a href="?p=<%= videos.page+1 %>">next</a>
+        </div>
+    <% } %>
+</div>

@@ -1,0 +1,88 @@
+<% function urlify(text) {
+    var urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function(url) {
+      return '<a href="' + url + '">' + url + '</a>';
+    })
+    // or alternatively
+    // return text.replace(urlRegex, '<a href="$1">$1</a>')
+  } %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/$/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="/$/css/main.css">
+    <link rel="stylesheet" href="/$/css/channel.css">
+    <title><%= channel.value.title %></title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <main>
+        <div id="channel">
+            <div class="header">
+                <div class="left">
+                    <div class="cover">
+                        <% if (channel.value.cover) { %>
+                            <img src="<%= channel.value.cover.url %>" alt="cover">
+                        <% } %>
+                    </div>
+                    <div class="avatar">
+                        <% if (channel.value.thumbnail) { %>
+                            <a href="<%= url %>">
+                                <img src="<%= channel.value.thumbnail.url %>" alt="thumbnail">
+                            </a>
+                        <% } %>
+                    </div>
+                    <div class="info">
+                        <a href="<%= url %>"><p class="name"><%= channel.value.title %></p></a>
+                        <p><%= channel.meta.claims_in_channel %> claim<%= channel.meta.claims_in_channel == 1 ? "" : "s" %></p>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="lang">
+                        <% for (i in channel.value.languages) { %>
+                            <p><%= channel.value.languages[i] %></p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <p class="head-title">About</p>
+                <input type="checkbox" id="toggle" />
+                <label for="toggle">
+                    <span class='unselectable expand'>
+                        <span class="changeArrow arrow-up">Show less</span>
+                        <span class="changeArrow arrow-dn">Show more</span>
+                    </span>
+                </label>
+                <div id="about">
+                    <% if (channel.value.description) { %>
+                        <p class="title">Description:</p>
+                        <span><%- urlify(channel.value.description) %></span>
+                    <% } %>
+                    <% if (channel.canonical_url) { %>
+                        <p class="title">URL:</p>
+                        <a href="<%= '/' + url %>"><span><%= channel.canonical_url %></span></a>
+                    <% } %>
+                    <% if (channel.meta.creation_timestamp) { %>
+                        <p class="title">Creation:</p>
+                        <span><%= new Date(channel.meta.creation_timestamp*1000).toISOString().split('T')[0] %></span>
+                    <% } %>
+                    <% if (channel.meta.support_amount) { %>
+                        <p class="title">Staked:</p>
+                        <span><%= channel.meta.effective_amount %> LBC</span>
+                    <% } %>
+                </div>
+            </div>
+            <div class="content">
+                <p class="head-title">Content</p>
+                <%- include('page_nav.ejs') %>
+                <%- include('claims.ejs') %>
+                <%- include('page_nav.ejs') %>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

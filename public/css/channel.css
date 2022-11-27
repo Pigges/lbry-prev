@@ -1,0 +1,184 @@
+#channel {
+}
+
+#channel .nav {
+    display: flex;
+    width: 100%;
+}
+
+#channel .nav #prev-page {
+    display: flex;
+    width: 50%;
+}
+
+#channel .nav #next-page {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+#channel .header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 75px 25px 20px;
+    color: #fff;
+}
+
+#channel .header .left {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#channel .header .left .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+    z-index: -10;
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(to right, #637ad2, #318794 80%);
+}
+
+#channel .header .left .cover img {
+    display: flex;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+#channel .header .left .avatar {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#channel .header .left .avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+#channel .header .left .info {
+    margin-left: 25px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#channel .header .left .info a {
+    text-decoration: none;
+}
+
+#channel .header .left .info .name {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+#channel .header .right {
+    display: flex;
+    width: fit-content;
+}
+
+#channel .header .right .lang {
+    display: flex;
+    align-items: flex-end;
+}
+
+#channel .header .right .lang p {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #318794;
+}
+
+#channel .body {
+    color: #fff;
+    background-color: rgba(17, 17, 17, 0.7);
+    padding: 10px 50px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+#channel .expand {
+    display: flex;
+    justify-content: flex-end;
+    color: #318794;
+}
+
+#channel .expand:hover {
+    text-decoration: underline;
+}
+
+#channel .body #about {
+    height: 100px;
+    overflow: hidden;
+}
+
+#toggle {
+    display: none;
+}
+
+#toggle:checked ~ #about {
+    height: fit-content;
+}
+
+label .arrow-dn { display: inline-block; }
+label .arrow-up { display: none; }
+
+#toggle:checked ~ label .arrow-dn { display: none; }
+#toggle:checked ~ label .arrow-up { display: inline-block; }
+
+#channel .head-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#channel .body #about .title {
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+#channel .body #about span {
+    display: block;
+    white-space: pre-line;
+    padding-left: 10px;
+}
+
+#channel .content {
+    margin-top: 25px;
+    padding: 25px 50px;
+    border-radius: 10px;
+    background-color: rgba(17, 17, 17, 0.7);
+}
+
+#channel .claims {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+#channel .claims .card {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    text-align: center;
+}
+
+#channel .claims .card .img {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    background-color: rgba(17, 17, 17, 0.7);
+    overflow: hidden;
+}
+
+#channel .claims .card img {
+    height: 100%;
+}

@@ -1,0 +1,14 @@
+<div class="claims">
+    <% for (i in videos.items) { %>
+        <a href="/<%= videos.items[i].signing_channel.name %>/<%= videos.items[i].short_url.split('lbry://')[1].replace('#', ':') %>">
+            <div class="card">
+                <div class="img">
+                    <% if (videos.items[i].value.thumbnail) { %>
+                        <img src="<%= videos.items[i].value.thumbnail.url %>" alt="thumbnail">
+                    <% } %>
+                </div>
+                <p><%= videos.items[i].value.title %></p>
+            </div>
+        </a>
+    <% } %>
+</div>
