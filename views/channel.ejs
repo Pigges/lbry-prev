@@ -29,11 +29,9 @@
                         <% } %>
                     </div>
                     <div class="avatar">
-                        <% if (channel.value.thumbnail) { %>
-                            <a href="<%= url %>">
-                                <img src="<%= channel.value.thumbnail.url %>" alt="thumbnail">
-                            </a>
-                        <% } %>
+                        <a href="<%= url %>">
+                            <img src="<%= channel.value.thumbnail ? channel.value.thumbnail.url : '/$/img/gerbil.png' %>" alt="thumbnail">
+                        </a>
                     </div>
                     <div class="info">
                         <a href="<%= url %>"><p class="name"><%= channel.value.title %></p></a>

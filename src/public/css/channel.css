@@ -60,6 +60,11 @@
     border-radius: 50%;
 }
 
+#channel .header .left .avatar:hover {
+    background-color: rgba(49, 135, 148, 0.2);
+    outline: 1px solid #318794;
+}
+
 #channel .header .left .avatar img {
     width: 100%;
     height: 100%;
